@@ -6,7 +6,7 @@
                     <div>
                         <p class="fw-medium text-muted mb-0">Tasks Sayı</p>
                         <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="{{$all}}">0</span></h2>
-                        <p class="mb-0 text-muted"><span class="badge bg-light text-success mb-0"> <i class="ri-arrow-up-line align-middle"></i> 17.32 %</span> vs. previous month</p>
+                        {{-- <p class="mb-0 text-muted"><span class="badge bg-light text-success mb-0"> <i class="ri-arrow-up-line align-middle"></i> 17.32 %</span> vs. previous month</p> --}}
                     </div>
                     <div>
                         <div class="avatar-sm flex-shrink-0">
@@ -48,7 +48,7 @@
                     <div>
                         <p class="fw-medium text-muted mb-0">Tamamlanan Tasklar</p>
                         <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="{{$tamam}}">0</span></h2>
-                        <p class="mb-0 text-muted"><span class="badge bg-light text-danger mb-0"> <i class="ri-arrow-down-line align-middle"></i> 2.52 % </span> vs. previous month</p>
+                        {{-- <p class="mb-0 text-muted"><span class="badge bg-light text-danger mb-0"> <i class="ri-arrow-down-line align-middle"></i> 2.52 % </span> vs. previous month</p> --}}
                     </div>
                     <div>
                         <div class="avatar-sm flex-shrink-0">
@@ -69,7 +69,7 @@
                     <div>
                         <p class="fw-medium text-muted mb-0">Davam edən Tasklar</p>
                         <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="{{$davam}}">0</span></h2>
-                        <p class="mb-0 text-muted"><span class="badge bg-light text-success mb-0"> <i class="ri-arrow-up-line align-middle"></i> 0.63 % </span> vs. previous month</p>
+                        {{-- <p class="mb-0 text-muted"><span class="badge bg-light text-success mb-0"> <i class="ri-arrow-up-line align-middle"></i> 0.63 % </span> vs. previous month</p> --}}
                     </div>
                     <div>
                         <div class="avatar-sm flex-shrink-0">

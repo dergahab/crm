@@ -33,6 +33,7 @@ class TaskStore extends FormRequest
             'start' => 'required',
             'user_id' => 'required',
             'project' => 'required',
+            'priority' => 'required',
             
         ];
     }
