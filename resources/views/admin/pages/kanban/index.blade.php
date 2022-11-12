@@ -18,7 +18,7 @@
         </div>
         <!-- end page title -->
 
-         <div class="card">
+         {{-- <div class="card">
             <div class="card-body">
                 <div class="row g-2">
                     <div class="col-lg-auto">
@@ -56,7 +56,7 @@
                 <!--end row-->
             </div>
             <!--end card-body-->
-        </div> 
+        </div>  --}}
         <!--end card-->
 
         <div class="tasks-board mb-3" id="kanbanboard">
@@ -153,9 +153,9 @@
                     </div>
                     <!--end tasks-->
                 </div>
-                <div class="my-3">
+                {{-- <div class="my-3">
                     <button class="btn btn-soft-info w-100" data-bs-toggle="modal" data-bs-target="#creatertaskModal">Add More</button>
-                </div>
+                </div> --}}
             </div>
             <!--end tasks-list-->
             @endforeach
