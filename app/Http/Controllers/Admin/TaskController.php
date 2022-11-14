@@ -73,11 +73,15 @@ class TaskController extends Controller
         ]);
     }
     
-    public function details(){
-        return view('admin.pages.task.details');
+    public function details(Request $request){
+        $item = Task::with(['status','priority'])->find($request->id);
+        return view('admin.pages.task.details',compact('item'));
     }
 
-    public function kombo(){
-        return view('admin.pages.task.kombo');
-    }
+   public function destroy ($id){
+    Task::where('id',$id)->delete();
+    return response()->json([
+        'code' => 200,
+    ]);
+   }
 }

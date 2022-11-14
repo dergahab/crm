@@ -120,8 +120,11 @@
                     { 
                         "data": 'id',
                         "render": function (param) { 
-                          return   `<button class='btn btn-danger destroy' title='Sil' data-id="`+param+`" route="{{route('position.destroy','destroy')}}"><i class=' ri-delete-bin-2-line'></i></button>
-                          <button class='btn btn-warning show' title='Bax' data-id="`+param+`" ><i class='fas fa-eye'></i></button>
+                            let id = param;
+                        let url = "{{route('task.details','show')}}"
+                        url = url.replace('show',id);
+                          return   `<button class='btn btn-danger destroy' title='Sil' data-id="`+param+`" route="{{route('task.destroy','destroy')}}"><i class=' ri-delete-bin-2-line'></i></button>
+                          <a href="`+url+`"  class='btn btn-warning show' title='Bax' data-id="`+param+`" ><i class='fas fa-eye'></i></a>
                                      <button class='btn btn-info edit' title='Düzənlə' data-id="`+param+`" ><i class='fas fa-pen'></i></button>`;
                                  
                          }
@@ -196,6 +199,8 @@
                             }
                         });
                 })
+
+
             })
         });
     </script>

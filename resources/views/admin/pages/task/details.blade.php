@@ -11,22 +11,22 @@
                                 <div class="col-md-auto">
                                     <div class="avatar-md mb-md-0 mb-4">
                                         <div class="avatar-title bg-white rounded-circle">
-                                            <img src="assets/images/companies/img-4.png" alt="" class="avatar-sm" />
+                                            <img src="{{asset('admin/assets/images/companies/img-4.png')}}" alt="" class="avatar-sm" />
                                         </div>
                                     </div>
                                 </div>
                                 <!--end col-->
                                 <div class="col-md">
-                                    <h4 class="fw-semibold" id="ticket-title">#VLZ135 - Create an Excellent UI for a Dashboard</h4>
+                                    <h4 class="fw-semibold" id="ticket-title">{{$item ->title}}</h4>
                                     <div class="hstack gap-3 flex-wrap">
                                         <div class="text-muted"><i class="ri-building-line align-bottom me-1"></i><span id="ticket-client">Themesbrand</span></div>
                                         <div class="vr"></div>
-                                        <div class="text-muted">Create Date : <span class="fw-medium " id="create-date">20 Dec, 2021</span></div>
+                                        <div class="text-muted">Yaraddılıb : <span class="fw-medium " id="create-date">{{$item->created_at}}</span></div>
                                         <div class="vr"></div>
-                                        <div class="text-muted">Due Date : <span class="fw-medium" id="due-date">29 Dec, 2021</span></div>
+                                        <div class="text-muted">Due Date : <span class="fw-medium" id="due-date">{{$item->deadline}}</span></div>
                                         <div class="vr"></div>
-                                        <div class="badge rounded-pill bg-info fs-12" id="ticket-status">New</div>
-                                        <div class="badge rounded-pill bg-danger fs-12" id="ticket-priority">High</div>
+                                        <div class="badge rounded-pill bg-info fs-12" id="ticket-status">{{$item->status->name}}</div>
+                                        <div class="badge rounded-pill bg-danger fs-12" id="ticket-priority">{{$item->priority}}</div>
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -67,36 +67,15 @@
     <div class="col-xxl-9">
         <div class="card">
             <div class="card-body p-4">
-                <h6 class="fw-semibold text-uppercase mb-3">Ticket Discripation</h6>
-                <p class="text-muted">It would also help to know what the errors are - it could be something simple like a message saying delivery is not available which could be a problem with your shipping templates. Too much or too little spacing, as in the example below, can make things unpleasant for the reader. The goal is to make your text as comfortable to read as possible. On the note of consistency, color consistency is a MUST. If you’re not trying to create crazy contrast in your design, then a great idea would be for you to use a color palette throughout your entire design. It will subconsciously interest viewers and also is very pleasing to look at. <a href="javascript:void(0);" class="link-secondary text-decoration-underline">Example</a></p>
-                <h6 class="fw-semibold text-uppercase mb-3">Create an Excellent UI for a Dashboard</h6>
-                <ul class="text-muted vstack gap-2 mb-4">
-                    <li>Pick a Dashboard Type</li>
-                    <li>Categorize information when needed</li>
-                    <li>Provide Context</li>
-                    <li>On using colors</li>
-                    <li>On using the right graphs</li>
-                </ul>
-                <div class="mt-4">
-                    <h6 class="fw-semibold text-uppercase mb-3">Here is the code you've requsted</h6>
-                    <div>
-                        <pre class="language-markup rounded-2"><code>var app = document.getElementById(&quot;app&quot;);
-var run = (model) =&gt; get(model, &quot;users&quot;, () =&gt;
-get(model, &quot;posts&quot;,
-() =&gt; {
-model.users.forEach(user =&gt; model.userIdx[user.id] = user);
-app.innerText = '';
-model.posts.forEach(post =&gt;
-app.appendChild(renderPost(post, model.userIdx[post.userId])));
-}));
-app.appendChild(Wrapper.generate(&quot;button&quot;, &quot;Load&quot;).click(() =&gt; run({
-userIdx: {}
-})).element);</code></pre>
-                    </div>
-                </div>
+                <h6 class="fw-semibold text-uppercase mb-3">Açıqlama</h6>
+                <p class="text-muted">
+                    {{ $item->description}}
+                </p>
+                
+             
             </div>
             <!--end card-body-->
-            <div class="card-body p-4">
+            {{-- <div class="card-body p-4">
                 <h5 class="card-title mb-4">Comments</h5>
 
                 <div data-simplebar style="height: 300px;" class="px-3 mx-n3">
@@ -170,14 +149,14 @@ userIdx: {}
                         </div>
                     </div>
                 </form>
-            </div>
+            </div> --}}
             <!-- end card body -->
         </div>
         <!--end card-->
     </div>
     <!--end col-->
     <div class="col-xxl-3">
-        <div class="card">
+        {{-- <div class="card">
             <div class="card-header">
                 <h5 class="card-title mb-0">Ticket Details</h5>
             </div>
@@ -264,9 +243,9 @@ userIdx: {}
                 </div>
             </div>
             <!--end card-body-->
-        </div>
+        </div> --}}
         <!--end card-->
-        <div class="card">
+        {{-- <div class="card">
             <div class="card-header">
                 <h6 class="card-title fw-semibold mb-0">Files Attachment</h6>
             </div>
@@ -302,7 +281,7 @@ userIdx: {}
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
     <!--end col-->
 </div>

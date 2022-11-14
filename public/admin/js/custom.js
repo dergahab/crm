@@ -18,12 +18,12 @@ $(document).on("click",".destroy",function(){
         data: { id: id},
         success: function (response) {
             if(response.code == 200){
-                swal.fire({
-                    title: 'Error!',
-                    text: 'Melumat silindi',
-                    icon: 'info',
+                // swal.fire({
+                //     title: 'Error!',
+                //     text: 'Melumat silindi',
+                //     icon: 'info',
                    
-                });
+                // });
                 $('.data-tabe').DataTable().ajax.reload();
             }
         }
