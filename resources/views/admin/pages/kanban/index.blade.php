@@ -86,11 +86,11 @@
 
                             <div class="card-body" >
                                 <div class="d-flex mb-2">
-                                     <h6 class="fs-15 mb-0 flex-grow-1 text-truncate task-title"><a href="apps-tasks-details.html" class="d-block">{{$task->title}}</a></h6>
+                                     <h6 class="fs-15 mb-0 flex-grow-1 text-truncate task-title"><a href="{{route('task.details',$task->id)}}" class="d-block">{{$task->title}}</a></h6>
                                     <div class="dropdown">
                                         <a href="javascript:void(0);" class="text-muted" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-fill"></i></a>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-                                            <li><a class="dropdown-item" href="apps-tasks-details.html"><i class="ri-eye-fill align-bottom me-2 text-muted"></i> View</a></li>
+                                            <li><a class="dropdown-item" href="{{route('task.details',$task->id)}}"><i class="ri-eye-fill align-bottom me-2 text-muted"></i> View</a></li>
                                             <li><a class="dropdown-item" href="#"><i class="ri-edit-2-line align-bottom me-2 text-muted"></i> Edit</a></li>
                                             <li><a class="dropdown-item" data-bs-toggle="modal" href="#deleteRecordModal"><i class="ri-delete-bin-5-line align-bottom me-2 text-muted"></i> Delete</a></li>
                                         </ul>
@@ -99,9 +99,9 @@
                                 <p class="text-muted">{{Str::limit($task->description, 50)}}</p>
                                 <div class="mb-3">
                                     <div class="d-flex mb-1">
-                                        <div class="flex-grow-1">
+                                        {{-- <div class="flex-grow-1">
                                             <h6 class="text-muted mb-0"><span class="text-secondary">15%</span> of 100%</h6>
-                                        </div>
+                                        </div> --}}
                                         <div class="flex-shrink-0">
                                             <span class="text-muted">{{$task->created_at}}</span>
                                         </div>

@@ -44,5 +44,6 @@ public function priority(): BelongsTo
 {
     return $this->belongsTo(Priority::class, 'priority', 'id');
 }
+
    
 }

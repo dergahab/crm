@@ -74,7 +74,7 @@ class TaskController extends Controller
     }
     
     public function details(Request $request){
-        $item = Task::with(['status','priority'])->find($request->id);
+        $item = Task::with('status','priority')->where('id',$request->id)->first();
         return view('admin.pages.task.details',compact('item'));
     }
 

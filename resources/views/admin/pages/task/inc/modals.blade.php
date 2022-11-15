@@ -82,6 +82,10 @@
                                 <option value="3">Aşağı</option>
                             </select>
                         </div>
+                        {{-- <div class="col-ls-12">
+                            <label  for="priority-field" class="form-label">Fayl </label>
+                            <input type="file" name="file" class="form-control"  >
+                        </div> --}}
                         <!--end col-->
                     </div>
                     <!--end row-->
@@ -182,6 +186,11 @@
                             </select>
                         </div>
                         <input type="hidden" id="edit-id" name="id">
+
+                        {{-- <div class="col-ls-12">
+                            <label  for="priority-field" class="form-label">Fayl </label>
+                            <input type="file" name="file" class="form-control"  >
+                        </div> --}}
                         <!--end col-->
                     </div>
                     <!--end row-->

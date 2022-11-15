@@ -19,11 +19,11 @@
                                 <div class="col-md">
                                     <h4 class="fw-semibold" id="ticket-title">{{$item ->title}}</h4>
                                     <div class="hstack gap-3 flex-wrap">
-                                        <div class="text-muted"><i class="ri-building-line align-bottom me-1"></i><span id="ticket-client">Themesbrand</span></div>
+                                        <div class="text-muted"><i class="ri-building-line align-bottom me-1"></i><span id="ticket-client">{{$item->project}}</span></div>
                                         <div class="vr"></div>
                                         <div class="text-muted">Yaraddılıb : <span class="fw-medium " id="create-date">{{$item->created_at}}</span></div>
                                         <div class="vr"></div>
-                                        <div class="text-muted">Due Date : <span class="fw-medium" id="due-date">{{$item->deadline}}</span></div>
+                                        <div class="text-muted">Deadline : <span class="fw-medium" id="due-date">{{$item->deadline}}</span></div>
                                         <div class="vr"></div>
                                         <div class="badge rounded-pill bg-info fs-12" id="ticket-status">{{$item->status->name}}</div>
                                         <div class="badge rounded-pill bg-danger fs-12" id="ticket-priority">{{$item->priority}}</div>

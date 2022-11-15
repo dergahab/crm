@@ -18,12 +18,7 @@ $(document).on("click",".destroy",function(){
         data: { id: id},
         success: function (response) {
             if(response.code == 200){
-                // swal.fire({
-                //     title: 'Error!',
-                //     text: 'Melumat silindi',
-                //     icon: 'info',
-                   
-                // });
+                toastr.success("Mekumat silindi")
                 $('.data-tabe').DataTable().ajax.reload();
             }
         }

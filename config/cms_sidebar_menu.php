@@ -7,7 +7,7 @@ return [
     [
         'icon' => '<i class=" ri-home-5-fill"></i>',
         'title' => 'Əsas səhifə',
-        'route' => '/',
+        'route' => 'home',
         'can' => 'dashbord.index'
     ],
     [
