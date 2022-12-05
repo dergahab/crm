@@ -114,11 +114,12 @@ return [
     'password' => "Şifrə",
     'deadline' => "Deadline",
     'start' => "Başlama vaxdı",
-    'desciption' => "Açıqlama",
+    'description' => "Açıqlama",
     'title' => "Başlıq",
     'user_id' => "Təhkim olunan",
     'project' => "Layihə",
-    'status' => "Status",
+    'status_id' => "Status",
+    'priority' => " Vaciblik",
   ],
 
 ];

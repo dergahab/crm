@@ -18,7 +18,7 @@ $(document).on("click",".destroy",function(){
         data: { id: id},
         success: function (response) {
             if(response.code == 200){
-                toastr.success("Mekumat silindi")
+                toastr.success("Məlumat silindi")
                 $('.data-tabe').DataTable().ajax.reload();
             }
         }

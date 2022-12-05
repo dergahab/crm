@@ -59,10 +59,10 @@
         </div>  --}}
         <!--end card-->
 
-        <div class="tasks-board mb-3" id="kanbanboard">
+        <div class="tasks-board mb-3" id="kanbanboard" style="padding-bottom: 20px">
             <input type="hidden" name="kanban update" id="kanpan_update" value="{{route('kanban.update')}}">
             @foreach ($statuses as $status)
-            <div class="tasks-list" data-status="{{$status->id}}">
+            <div class="tasks-list border-end border-white border-3 p-1" data-status="{{$status->id}}">
                 <div class="d-flex mb-3">
                     <div class="flex-grow-1">
                         <h6 class="fs-14 text-uppercase fw-semibold mb-0">{{$status->name}} <small class="badge align-bottom ms-1 totaltask-badge" style="background-color: {{$status->color}} !important">{{$status->tasks_count}}</small></h6>

@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TaskStore;
 use App\Http\Requests\TaskUpdate;
+use App\Models\File;
 use App\Models\Status;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class TaskController extends Controller
 {
@@ -28,12 +31,11 @@ class TaskController extends Controller
         $gozle = Task::where('status_id',3)->count();
         $tamam = Task::where('status_id',4)->count();
         return view('admin.pages.task.list',compact(['all','new','davam','gozle','tamam']));
-    }
-    
+    }  
 
     public function list(){
 
-        $items = Task::with(['user','status','priority'])->get();
+        $items = Task::with(['user','status','priority','files'])->get();
     
         return response()->json([
                     'code' => 200,
@@ -43,9 +45,33 @@ class TaskController extends Controller
 
 
     public function store(TaskStore $request){
+   
         $task = new Task($request->validated());
         $task->save();
         $task->user()->attach($request->user_id);
+
+         $data = [];
+        if ($request->file) {
+         
+            for ($i=0; $i < count($request->file('file')); $i++) { 
+ 
+            $dPath = 'file/';
+            $img   = $request->file('file')[$i];
+            $fName = $img->getClientOriginalName();
+            $exten = $img->getClientOriginalExtension();;
+            $request->file('file')[$i]->storeAs($dPath, $fName);
+            $path  = $dPath . '' . $fName;
+            Storage::disk('public')->put($path, file_get_contents($request->file('file')[$i]));
+    
+            $data['path'] = $path;
+            $data['name'] =  $fName;
+            $data['type'] =  $exten;
+            $data['task_id'] = $task->id;
+
+           File::create($data);
+            }
+         }
+
 
         return  response()->json([
             'code' => 200,
@@ -62,26 +88,60 @@ class TaskController extends Controller
     }
 
     public function update(TaskUpdate $request ,$id){
-        
-        Task::where('id',$id)->update($request->except(['user_id','_token','_method']));
+     
+        Task::where('id',$id)->update($request->except(['user_id','_token','_method','file']));
 
         $task = Task::find($id);
         $task->user()->sync($request->user_id);
         
+        $data = [];
+        if ($request->file) {
+         
+            for ($i=0; $i < count($request->file); $i++) { 
+ 
+            $dPath = 'file/';
+            $img   = $request->file('file')[$i];
+            $fName = $img->getClientOriginalName();
+            $exten = $img->getClientOriginalExtension();;
+            $request->file('file')[$i]->storeAs($dPath, $fName);
+            $path  = $dPath . '' . $fName;
+            Storage::disk('public')->put($path, file_get_contents($request->file('file')[$i]));
+    
+            $data['path'] = $path;
+            $data['name'] =  $fName;
+            $data['type'] =  $exten;
+            $data['task_id'] = $task->id;
+
+           File::create($data);
+            }
+         }
+
+
         return response()->json([
             'code' => 200,
         ]);
     }
     
     public function details(Request $request){
-        $item = Task::with('status','priority')->where('id',$request->id)->first();
-        return view('admin.pages.task.details',compact('item'));
+        $item = Task::with(['user','status','priority','files'])->where('id',$request->id)->first();
+        return response()->json([
+            'code' => 200,
+            'data' => $item
+        ]);
+        // return view('admin.pages.task.details',compact('item'));
     }
 
    public function destroy ($id){
     Task::where('id',$id)->delete();
     return response()->json([
         'code' => 200,
+    ]);
+   }
+
+   public function file_upload(){
+    return  response()->json([
+        'code' => 200,
+        'data' => 'test'
     ]);
    }
 }

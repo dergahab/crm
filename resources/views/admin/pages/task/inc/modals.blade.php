@@ -6,7 +6,7 @@
                 <h5 class="" id="">Yeni Task</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
             </div>
-            <form  id="new-task-form">
+            <form  id="new-task-form" enctype="multipart/form-data">
                 @csrf
                
                 <div class="modal-body">
@@ -25,7 +25,7 @@
                         </div>
                         <div class="col-lg-12">
                             <label for="projectName-field" class="form-label">Açıqlama</label>
-                            <textarea name="description" id="desciption" cols="30"  class="form-control" required placeholder="Açıqlama" rows="5"></textarea>
+                            <textarea name="description" id="description" cols="30"  class="form-control" required placeholder="Açıqlama" rows="5"></textarea>
                         </div>
                         <!--end col-->
                      
@@ -37,7 +37,7 @@
                                     @foreach ($users as $user)
                                     <li>
                                         <div class="form-check d-flex align-items-center">
-                                            <input class="form-check-input me-3" type="checkbox" name="user_id[]" value="{{$user->id}}" id="anna-adame">
+                                            <input class="form-check-input me-3 user_id" type="checkbox" name="user_id[]" value="{{$user->id}}"  multiple>
                                             <label class="form-check-label d-flex align-items-center" for="anna-adame">
                                                 <span class="flex-shrink-0">
                                                     <img src="{{asset('admin/assets/images/users/avatar-3.jpg')}}" alt="" class="avatar-xxs rounded-circle">
@@ -63,13 +63,14 @@
                             <input type="date" id="deadline" name="deadline" class="form-control"  placeholder="Due date" required />
                         </div>
                         <!--end col-->
+
                         <div class="col-lg-6">
-                            <label for="ticket-status" class="form-label">Status</label>
-                            <select name="status_id" class="form-control"  id="status">
+                            <label for="status" class="form-label">Status</label>
+                            <select name="status_id" class="form-control"  id="status_id">
                                 <option value="">Status</option>
-                               @foreach ($statuses as $status)
-                                   <option value="{{$status->id}}">{{$status->name}}</option>
-                               @endforeach
+                                @foreach ($statuses as $status)
+                                  <option value="{{$status->id}}">{{$status->name}}</option>
+                                  @endforeach
                             </select>
                         </div>
                         <!--end col-->
@@ -82,10 +83,10 @@
                                 <option value="3">Aşağı</option>
                             </select>
                         </div>
-                        {{-- <div class="col-ls-12">
+                        <div class="col-ls-12">
                             <label  for="priority-field" class="form-label">Fayl </label>
-                            <input type="file" name="file" class="form-control"  >
-                        </div> --}}
+                            <input type="file" id="file" name="file[]" class="form-control" multiple >
+                        </div>
                         <!--end col-->
                     </div>
                     <!--end row-->
@@ -140,7 +141,7 @@
                                     @foreach ($users as $user)
                                     <li>
                                         <div class="form-check d-flex align-items-center">
-                                            <input class="form-check-input me-3 users" type="checkbox" name="user_id[]" value="{{$user->id}}" >
+                                            <input class="form-check-input me-3 edit_user_id" type="checkbox" id="edit_user_id" name="user_id[]" value="{{$user->id}}" >
                                             <label class="form-check-label d-flex align-items-center" for="anna-adame">
                                                 <span class="flex-shrink-0">
                                                     <img src="{{asset('admin/assets/images/users/avatar-3.jpg')}}" alt="" class="avatar-xxs rounded-circle">
@@ -159,11 +160,11 @@
                         <!--end col-->
                         <div class="col-lg-6">
                             <label for="duedate-field" class="form-label">Başlama vaxdı</label>
-                            <input type="date" id="edit-start" name="start"  class="form-control"  placeholder="Due date" required />
+                            <input type="date" id="edit-start" name="start" value="12/10/2022"  class="form-control"  placeholder="Başlama vaxdı" required />
                         </div>
                         <div class="col-lg-6">
                             <label for="duedate-field" class="form-label">Dedline</label>
-                            <input type="date" id="edit-deadline" value="12/10/2022" name="deadline" class="form-control" data-provider="" placeholder="Due date" required />
+                            <input type="date" id="edit-deadline" value="12/10/2022" name="deadline" class="form-control" data-provider="" placeholder="Dedline" required />
                         </div>
                         <!--end col-->
                         <div class="col-lg-6">
@@ -187,10 +188,10 @@
                         </div>
                         <input type="hidden" id="edit-id" name="id">
 
-                        {{-- <div class="col-ls-12">
+                        <div class="col-ls-12">
                             <label  for="priority-field" class="form-label">Fayl </label>
-                            <input type="file" name="file" class="form-control"  >
-                        </div> --}}
+                            <input type="file" name="file[]" id="edit-file" class="form-control" multiple >
+                        </div>
                         <!--end col-->
                     </div>
                     <!--end row-->

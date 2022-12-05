@@ -48,6 +48,7 @@ Route::get('personal-list',[PersonalController::class,'list'])->name('personal.l
 
     // Route::get('/',[TaskController::class,'index'])->name('task.index');
     Route::resource('task',TaskController::class);
+    
     Route::get('list',[TaskController::class,'list'])->name('task.list');
     Route::get('details/{id}',[TaskController::class,'details'])->name('task.details');
 
