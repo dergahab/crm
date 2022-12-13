@@ -25,7 +25,7 @@ class TaskController extends Controller
     }
     public function index()
     {
-        // return           $item = Task::with(['user.position','status','priority','files','commnets'])->where('id',19)->first();
+        return           $item = Task::with(['user.position','status','priority','files','commnets'])->where('id',19)->first();
 
         $all = Task::count();
         $new = Task::where('status_id', 1)->count();
