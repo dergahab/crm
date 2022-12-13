@@ -42,7 +42,7 @@
                                             alt="" class="avatar-xs rounded-circle">
                                     </div>
                                     <div class="flex-grow-1 ms-2">
-                                        <h6 class="mb-1"><a href="javascript:void(0);">{{$person->name}}</a>
+                                        <h6 class="mb-1"><a href="javascript:void(0);">{{$person->full_name}}</a>
                                         </h6>
                                     </div>
                                     <div class="flex-shrink-0">
@@ -147,7 +147,7 @@
                                                     </div>
                                                     <div class="flex-grow-1 ms-3">
                                                         <h5 class="fs-13"><a
-                                                                href="pages-profile.html">{{$comment->user->name}}</a> <small class="text-muted">{{$comment->created_at}}</small></h5>
+                                                                href="pages-profile.html">{{$comment->user->full_name}}</a> <small class="text-muted">{{$comment->created_at}}</small></h5>
                                                         <p class="text-muted">{{$comment->content}}</p>
 
                                                     </div>
