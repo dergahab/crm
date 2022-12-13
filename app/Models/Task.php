@@ -15,9 +15,15 @@ class Task extends Model
     protected $fillable = ['title', 'project', 'description', 'deadline', 'start', 'priority', 'status_id'];
 
     protected $appends = ['user_ids'];
-    public function user(): BelongsToMany
+
+    public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'user_assign_tasks',   'task_id', 'user_id');
+    }
+
+    public function user():BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function getDeadlineAttribute($key)
@@ -32,7 +38,7 @@ class Task extends Model
 
     public function getUserIdsAttribute($key)
     {
-        return array_column($this->user->toArray(), 'id');
+        return array_column($this->users->toArray(), 'id');
     }
 
 
@@ -40,6 +46,12 @@ class Task extends Model
     {
         return $this->belongsTo(Status::class);
     }
+
+    public function commnets(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     /**
      * Get the user that owns the Task
      *
@@ -47,7 +59,7 @@ class Task extends Model
      */
     public function priority(): BelongsTo
     {
-        return $this->belongsTo(Priority::class, 'priority', 'id');
+        return $this->belongsTo(Priority::class);
     }
 
     public function files(): HasMany

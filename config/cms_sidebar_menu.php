@@ -26,12 +26,12 @@ return [
                 'icon'  => '<i class="ri-user-2-fill"></i>',
                 'can' => 'user.index'
             ],
-            [
-                'title' => 'İcazələr',
-                'route' => 'role.index',
-                'icon'  => '<i class=" ri-auction-fill"></i>',
-                'can' => 'role.index'
-            ],
+            // [
+            //     'title' => 'İcazələr',
+            //     'route' => 'role.index',
+            //     'icon'  => '<i class=" ri-auction-fill"></i>',
+            //     'can' => 'role.index'
+            // ],
          
     ],
     ],
@@ -63,12 +63,12 @@ return [
                 'icon'  => '<i class="ri-file-list-3-line"></i>',
                 'can' => 'task.index'
             ],
-            [
-                'title' => 'Kombo',
-                'route' => 'kanban.index',
-                'icon'  => '<i class=" ri-auction-fill"></i>',
-                'can' => 'kombo.index'
-            ],
+            // [
+            //     'title' => 'Kombo',
+            //     'route' => 'kanban.index',
+            //     'icon'  => '<i class=" ri-auction-fill"></i>',
+            //     'can' => 'kombo.index'
+            // ],
          
          ],
     ],

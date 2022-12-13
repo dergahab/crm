@@ -102,7 +102,7 @@
                         "data": 'title'
                     },
                     {
-                        "data": 'user',
+                        "data": 'users',
                         "render": function (param) {
                             let html = '<div class="avatar-group">';
                             param.forEach(item => {
@@ -308,66 +308,52 @@
                     $.get(url,
                         function (response) {
                             if(response.code == 200){
-                                console.table(response.data)
-                                $("#dtitle").html(response.data.tesk)
-                                $("#dproject").html(response.data.project)
-                                $("#dpriority").html(`<span class="badge  text-uppercase" style="background-color: ` + response.data.priority.color + ` !important">` +  response.data.priority.name + `</span>`)
-                                $("#dstatus").html(`<span class="badge  text-uppercase" style="background-color: ` + response.data.status.color + ` !important">` +  response.data.status.name + `</span>`)
-                                $("#ddedline").html(response.data.deadline)
-                                $("#dcontent").html(response.data.description)
-
-
-                                let assign_to = '';
-
-                                response.data.user
-                                $.each(response.data.user, function (index, val) { 
-                                    assign_to +=  ` <li>
-                                        <div class="d-flex align-items-center">
-                                            <div class="flex-shrink-0">
-                                                <img src="{{asset('admin/assets/images/users/avatar-9.jpg')}}" alt=""
-                                                    class="avatar-xs rounded-circle">
-                                            </div>
-                                            <div class="flex-grow-1 ms-2">
-                                                <h6 class="mb-1"><a href="pages-profile.html">${val.full_name}</a></h6>
-                                                <p class="text-muted mb-0">Full Stack Developer</p>
-                                            </div>
-                                            <div class="flex-shrink-0">
-                                                <div class="dropdown">
-                                                    <button class="btn btn-icon btn-sm fs-16 text-muted dropdown"
-                                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="ri-more-fill"></i>
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="javascript:void(0);"><i
-                                                                    class="ri-eye-fill text-muted me-2 align-bottom"></i>View</a>
-                                                        </li>
-                                                        <li><a class="dropdown-item" href="javascript:void(0);"><i
-                                                                    class="ri-star-fill text-muted me-2 align-bottom"></i>Favourite</a>
-                                                        </li>
-                                                        <li><a class="dropdown-item" href="javascript:void(0);"><i
-                                                                    class="ri-delete-bin-5-fill text-muted me-2 align-bottom"></i>Delete</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>`;
-                                });
-                                $("#assign_to").html(assign_to)
-
-                                let files = '';
-
-                                response.data.file
-                                $.each(response.data.user, function (index, val) { 
-                                    files +=  ` `;
-                                });
-                                $("#assign_to").html(files)
-
+                                $("#deatil-response").html(response.data)
 
                                 $("#detaleModal").modal('toggle');
                             }
                         });
                 })
+
+
+               $(document).on('click', "#comment",function(){
+                    let conetent = $('#coment-text').val();
+
+                    let data = {
+                        id : $('#task-id').val(),
+                        content : $('#coment-text').val()
+                    }
+                    console.log(data)
+                   
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    if (conetent.length > 1) {
+                        $.ajax({
+                            enctype: 'multipart/form-data',
+                            type: "POST",
+                            url: "{{route('task.comment')}}",
+                            data: data,
+                            cache: false,
+                         
+                            success: function (response) {
+                                $("#comments-box").append(response.view);
+                                $('#scrollable').animate({
+                                    scrollTop:  $('#scrollable')[0].scrollHeight
+                                }, 2000);
+                                $("#coment-text").val('');
+                            },
+                            error: function (error) {
+                                $.each(error.responseJSON, function (index, value) {
+                                    toastr.error(value)
+                                    return false;
+                                });
+                            }
+                        });
+                    }
+                    })
 
         });
     </script>
