@@ -203,7 +203,7 @@
                             class="rounded-circle avatar-md">
                     </div>
                     <div class="flex-grow-1 ms-2">
-                        <h5 class="card-title mb-1">{{$item->user->name}}</h5>
+                        <h5 class="card-title mb-1">{{$item->user->full_name}}</h5>
                         {{-- <p class="text-muted mb-0">Design</p> --}}
                         <a href="#" class="badge badge-outline-primary" style="color:{{$item->status->color}}">{{$item->status->name}}</a>
                     </div>
