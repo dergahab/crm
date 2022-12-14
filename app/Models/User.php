@@ -52,8 +52,7 @@ class User extends Authenticatable
 
     public function getRoleTitleAttribute()
     {
-        $full_name =  $this->roles->first()->name;
-        return  $full_name ?  $full_name : ' ';
+        return $this->roles->first()->name;
     }
 
     public function getFuLLNameAttribute()
