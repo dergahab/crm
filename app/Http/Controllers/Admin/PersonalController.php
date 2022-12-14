@@ -122,7 +122,7 @@ class PersonalController extends Controller
            
            return response()->json([
             'code' => 200,
-            'data' => $request->validated()
+           
            ]);
     }
 

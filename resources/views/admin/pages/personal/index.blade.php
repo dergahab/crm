@@ -140,15 +140,16 @@
 
                 $("#edit-position").click(function(){
                     let data = $("#edit-form").serialize();
-                    let id = $(this).data('edit-id');
-                    let url = "{{route('position.update','update')}}"
-                    url = url.replace('update',id);
+                 
+                    let id = $("#edit-id").val();
+                    let url = "{{route('personal.update','edit-id')}}"
+                    url = url.replace('edit-id',id);
                     $.post(url, data,
                         function (response) {
                             if(response.code == 200){
                                 table.ajax.reload();
                                 $("#create-form").trigger("reset");
-                                $("#position-modal-edit").modal('toggle');
+                                $("#personal-modal-edit").modal('toggle');
                             }
                         });
               })

@@ -134,7 +134,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">İmtina et</button>
-                <button type="button" class="btn btn-success " id="edit-position">Düzəliş et</button>
+                <button type="button" class="btn btn-success" id="edit-position">Düzəliş et</button>
             </div>
         </div>
     </div>
