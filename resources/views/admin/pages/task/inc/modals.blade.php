@@ -159,12 +159,12 @@
                         </div>
                         <!--end col-->
                         <div class="col-lg-6">
-                            <label for="duedate-field" class="form-label">Başlama vaxdı</label>
-                            <input type="date" id="edit-start" name="start" value="12/10/2022"  class="form-control"  placeholder="Başlama vaxdı" required />
+                            <label  class="form-label">Başlama vaxdı</label>
+                            <input type="date"  name="start"   class="form-control edit-start"  placeholder="Başlama vaxdı" autocomplete="off" required />
                         </div>
                         <div class="col-lg-6">
-                            <label for="duedate-field" class="form-label">Dedline</label>
-                            <input type="date" id="edit-deadline" value="12/10/2022" name="deadline" class="form-control" data-provider="" placeholder="Dedline" required />
+                            <label class="form-label">Dedline</label>
+                            <input type="date" id="edit-deadline"  name="deadline" class="form-control" autocomplete="off" placeholder="Dedline" required />
                         </div>
                         <!--end col-->
                         <div class="col-lg-6">

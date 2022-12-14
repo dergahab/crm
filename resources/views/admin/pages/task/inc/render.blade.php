@@ -35,7 +35,7 @@
                         <ul class="list-unstyled vstack gap-3 mb-0">
                             @foreach ($item->users as $person)
 
-                            <li>
+                            <li id="task-peron-{{$person->id}}">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0">
                                         <img src="{{ asset('admin/assets/images/users/avatar-10.jpg') }}"
@@ -62,9 +62,10 @@
                                                         href="javascript:void(0);"><i
                                                             class="ri-star-fill text-muted me-2 align-bottom"></i>Favourite</a>
                                                 </li> --}}
-                                                <li><a class="dropdown-item"
-                                                        href="javascript:void(0);"><i
-                                                            class="ri-delete-bin-5-fill text-muted me-2 align-bottom"></i>Təhkim olunalardan çıxar</a>
+                                                <li><a class="dropdown-item atendent_delete"
+                                                        href="javascript:void(0);" data-id="{{$person->id}}" data-task="{{$item->id}}" route="{{route('task.atendent_delete')}}">
+                                                        <i class="ri-delete-bin-5-fill text-muted me-2 align-bottom">
+                                                        </i>Təhkim olunalardan çıxar</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -78,9 +79,7 @@
                     <div class="tab-pane" id="product1" role="tabpanel">
                         <div class="vstack gap-2">
                             @foreach ($item->files as $file)
-                                
-                          
-                            <div class="border rounded border-dashed p-2">
+                            <div class="border rounded border-dashed p-2" id="file-box-{{$file->id}}">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 me-3">
                                         <div class="avatar-sm">
@@ -113,9 +112,9 @@
                                                             href="javascript:void(0);"><i
                                                                 class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                                             Rename</a></li> --}}
-                                                    <li><a class="dropdown-item"
+                                                    <li><a class="dropdown-item"  id="file-delete" data-id="{{$file->id}}" data-task="{{$item->id}}" route="{{route('task.file_delete','destroy')}}"
                                                             href="javascript:void(0);"><i
-                                                                class="ri-delete-bin-fill align-bottom me-2 text-muted " data-id="{{$file->id}}" route="{{route('task.destroy','destroy')}}"></i>
+                                                                class="ri-delete-bin-fill align-bottom me-2 text-muted "></i>
                                                             Sil</a></li>
                                                 </ul>
                                             </div>
@@ -138,7 +137,6 @@
                                             role="region" aria-label="scrollable content"
                                             style="height: 100%; overflow: hidden scroll;">
                                             <div class="simplebar-content" style="padding: 0px 16px;" id="comments-box">
-                                               
                                                 @foreach($item->commnets  as $comment)
                                                 <div class="d-flex mb-4">
                                                     <div class="flex-shrink-0">

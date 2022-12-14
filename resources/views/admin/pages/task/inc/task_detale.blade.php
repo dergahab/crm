@@ -6,7 +6,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="deatil-response">
-                {{-- @include('admin.pages.task.inc.render') --}}
             </div>
             <div class="modal-footer border-top">
                 <button type="button" class="btn btn-outline-secondary waves-effect waves-light"

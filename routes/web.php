@@ -53,6 +53,8 @@ Route::get('personal-list',[PersonalController::class,'list'])->name('personal.l
     Route::get('list',[TaskController::class,'list'])->name('task.list');
     Route::get('details/{id}',[TaskController::class,'details'])->name('task.details');
     Route::post('comment',[TaskController::class,'comment'])->name('task.comment');
+    Route::post('file-delete',[TaskController::class,'file_delete'])->name('task.file_delete');
+    Route::post('atended-delete',[TaskController::class,'atendent_delete'])->name('task.atendent_delete');
 
 
     Route::get('kanban',[KanbanController::class,'index'])->name('kanban.index');

@@ -150,10 +150,10 @@
                         "data": 'id',
                         "render": function (param) {
                             let id = param;
-                            let url = "{{route('task.details','show')}}"
-                            url = url.replace('show', id);
+                            // let url = "{{route('task.details','show')}}"
+                            // url = url.replace('show', id);
                             return `<button class='btn btn-danger destroy' title='Sil' data-id="` + param + `" route="{{route('task.destroy','destroy')}}"><i class=' ri-delete-bin-2-line'></i></button>
-                          <button   class='btn btn-warning show' title='Bax' data-id="` + param + `" ><i class='fas fa-eye'></i></button>
+                          <button   class='btn btn-warning show-deatil' title='Bax' data-id="` + param + `" ><i class='fas fa-eye'></i></button>
                                      <button class='btn btn-info edit' title='Düzənlə' data-id="` + param + `" ><i class='fas fa-pen'></i></button>`;
 
                         }
@@ -229,8 +229,10 @@
                         $("#edit-project").val(response.data.project);
                         $("#edit-title").val(response.data.title);
                         $("#edit-description").val(response.data.description);
-                        $("#edit-start").val(response.data.start);
+
+                        $(".edit-start").val(response.data.start);
                         $("#edit-deadline").val(response.data.deadline);
+
                         $('#edit-priority').val(response.data.priority);
                         $('#edit-status').val(response.data.status_id);
                         $('#edit-id').val(response.data.id);
@@ -301,7 +303,7 @@
 
                 })
 
-                $(document).on('click', '.show',function(){
+                $(document).on('click', '.show-deatil',function(){
                     let id = $(this).data('id');
                             let url = "{{route('task.details','show')}}"
                             url = url.replace('show', id);

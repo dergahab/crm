@@ -99,7 +99,7 @@ class TaskController extends Controller
         Task::where('id', $id)->update($request->except(['user_id', '_token', '_method', 'file']));
 
         $task = Task::find($id);
-        $task->user()->sync($request->user_id);
+        $task->users()->sync($request->user_id);
 
         $data = [];
         if ($request->file) {
@@ -162,6 +162,23 @@ class TaskController extends Controller
     public function destroy($id)
     {
         Task::where('id', $id)->delete();
+        return response()->json([
+            'code' => 200,
+        ]);
+    }
+
+    public function file_delete(Request $request){
+        File::where('id',$request->id)->delete();
+        return response()->json([
+            'code' => 200,
+        ]);
+    }
+
+    public function atendent_delete(Request $request)
+    {
+        $task = Task::where('id',$request->task)->first();
+        $task->users()->sync($request->id);
+
         return response()->json([
             'code' => 200,
         ]);
