@@ -269,7 +269,7 @@
                 editFormData.append("project", $("#edit-project").val());
                 editFormData.append("title", $("#edit-title").val());
                 editFormData.append("description", $("#edit-description").val());
-                editFormData.append("start", $("#edit-start").val());
+                editFormData.append("start", $(".edit-start").val());
                 editFormData.append("deadline", $("#edit-deadline").val());
                 editFormData.append("priority_id", $("#edit-priority").val());
                 editFormData.append("status_id", $("#edit-status").val());
