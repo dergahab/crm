@@ -53,7 +53,7 @@ class TaskController extends Controller
 
         $task = new Task($request->validated());
         $task->save();
-        $task->user()->attach($request->user_id);
+        $task->users()->attach($request->user_id);
 
         $data = [];
         if ($request->file) {
