@@ -25,8 +25,9 @@ class TaskController extends Controller
     }
     public function index()
     {
-                   $item = Task::with(['user.position','status','priority','files','commnets'])->where('id',3)->first();
-        return print_r($item);
+        //            $item = Task::with(['user.position','status','priority','files','commnets'])->where('id',3)->first();
+        // return print_r($item);
+        
         $all = Task::count();
         $new = Task::where('status_id', 1)->count();
         $davam = Task::where('status_id', 2)->count();
