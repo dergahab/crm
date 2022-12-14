@@ -191,7 +191,7 @@
                 formData.append("description", $("#description").val());
                 formData.append("start", $("#start").val());
                 formData.append("deadline", $("#deadline").val());
-                formData.append("priority", $("#priority").val());
+                formData.append("priority_id", $("#priority").val());
                 formData.append("status_id", $("#status_id").val());
                
                 $.ajax({
@@ -233,7 +233,7 @@
                         $(".edit-start").val(response.data.start);
                         $("#edit-deadline").val(response.data.deadline);
 
-                        $('#edit-priority').val(response.data.priority);
+                        $('#edit-priority').val(response.data.priority_id);
                         $('#edit-status').val(response.data.status_id);
                         $('#edit-id').val(response.data.id);
 
@@ -271,7 +271,7 @@
                 editFormData.append("description", $("#edit-description").val());
                 editFormData.append("start", $("#edit-start").val());
                 editFormData.append("deadline", $("#edit-deadline").val());
-                editFormData.append("priority", $("#edit-priority").val());
+                editFormData.append("priority_id", $("#edit-priority").val());
                 editFormData.append("status_id", $("#edit-status").val());
                 editFormData.append("id", $("#edit-id").val());
                 editFormData.append("_method", $("input[name=_method]").val());

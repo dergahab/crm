@@ -179,7 +179,7 @@
                         <!--end col-->
                         <div class="col-lg-6">
                             <label  for="priority-field" class="form-label">Vaciblik</label>
-                            <select name="priority"  class="form-control" id="edit-priority">
+                            <select name="priority_id"  class="form-control" id="edit-priority">
                                 <option value="">Vaciblik</option>
                                 <option value="1">Yüksək</option>
                                 <option value="2">Orta</option>
