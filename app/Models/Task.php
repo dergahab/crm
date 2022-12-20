@@ -26,14 +26,14 @@ class Task extends Model
         return $this->belongsTo(User::class);
     }
 
-    // public function getDeadlineAttribute($key)
-    // {
-    //     return date('m/M/Y', strtotime($key));
-    // }
-    // public function getStartAttribute($key)
-    // {
-    //     return date('m/M/Y', strtotime($key));
-    // }
+    public function getDeadlineAttribute($key)
+    {
+        return date('m/M/Y', strtotime($key));
+    }
+    public function getStartAttribute($key)
+    {
+        return date('m/M/Y', strtotime($key));
+    }
 
 
     public function getUserIdsAttribute($key)
