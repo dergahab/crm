@@ -17,10 +17,10 @@ class UserSeeder extends Seeder
     {
        User::create([
         'name' => "Dergah",
-        'email' => 'Dergah.ab@gmail.com',
+        'email' => 'admin@gmail.com',
         'email_verified_at' => now(),
         'type' => 'admin',
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'password' => '$2y$10$Kxz7EBy7kTkDSQhdzK6ZKuq1xJfJ2Gt3f1ItOmWUpVum0LCh4wBMK', // 12341234
         'remember_token' => Str::random(10),
        ]);
     }
